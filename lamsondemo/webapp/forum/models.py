@@ -12,3 +12,6 @@ class Subscription(models.Model):
     subscriber = models.ForeignKey(User)
     topic = models.ForeignKey(Topic)
 
+class ReplyAddress(models.Model):
+    subscription = models.ForeignKey(Subscription)
+    address = models.EmailField()
