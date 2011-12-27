@@ -1,8 +1,11 @@
-from django.contrib.admin import ModelAdmin, site
+from django.contrib.admin import ModelAdmin, StackedInline, site
 from models import Topic, Post, Subscription
 
+class PostInlineAdmin(StackedInline):
+    model = Post
+
 class TopicAdmin(ModelAdmin):
-    pass
+    inlines = [PostInlineAdmin,]
 
 class SubscriptionAdmin(ModelAdmin):
     pass
